@@ -1,5 +1,62 @@
-.env
-*.swp
-_host-volumes
+# phpstorm project files
+.idea
 
-\.idea/
+# bower
+.bowerrc
+
+# Vagrant Files
+.vagrant
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# sublime text project / workspace files
+*.sublime-project
+*.sublime-workspace
+testsql.php
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/app/web/_protected/vendor
+
+# sessions
+/app/web/_protected/runtime/session/sess_*
+/app/web/_protected/runtime/
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# SQL
+*.sql
+*.pgsql
+*.dump
+*.data
+*gii*
+*.log
+
+# Excel Files
+*.xlsx
+
+/.env
+/.vscode
+/data/*
+/config/*
+/logs/*
+.DS_Store
+
+LICENSE

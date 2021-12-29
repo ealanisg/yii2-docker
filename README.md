@@ -1,34 +1,18 @@
-<p align="center">
-    <a href="https://www.docker.com/" target="_blank">
-        <img src="https://www.docker.com/sites/default/files/mono_vertical_large.png" height="100px">
-    </a>
-    <h1 align="center">Yii2 PHP Docker Image</h1>
-    <br>
-</p>
-
-[![Build Status](https://github.com/yiisoft/yii2-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yiisoft/yii2-docker/actions/workflows/docker-image.yml)
-
-This is the repo of the official [Yii 2.0 Framework](http://www.yiiframework.com/) image on [DockerHub](https://hub.docker.com/r/yiisoftware/yii2-php/) for PHP.
+# Yii 2 Boilerplate
 
 ## About
 
-These Docker images are built on top of the official PHP Docker image, they contain additional PHP extensions required to run Yii 2.0 framework, but no code of the framework itself.
-The `Dockerfile`(s) of this repository are designed to build from different PHP-versions by using *build arguments*.
+This boilerplate is ready for build projects with Yii2 using basic template with adminlte3 and advanced features.
+It is using the mix of different projects:
 
-### Available versions for `yiisoftware/yii2-php`
+* Yii2 Docker Image (https://github.com/yiisoft/yii2-docker)
+  * plus Configuration from MariaDB Container
+* hail812/yii2-adminlte3 (https://github.com/hail812/yii2-adminlte3)
+* Yii2 Basic Template (https://github.com/nenad-zivkovic/yii2-basic-template)
 
-```
-8.0-apache, 8.0-fpm
-7.4-apache, 7.4-fpm 
-```
+These 3 projects were mixed and adjusted to work together with the current Yii2 version.
 
-#### Deprecated or EOL versions
-
-```
-7.3-apache, 7.3-fpm
-7.2-apache, 7.1-apache, 7.0-apache, 5.6-apache
-7.2-fpm, 7.1-fpm, 7.0-fpm, 5.6-fpm
-```
+Go to each repo README file for details.
 
 ## Setup
 
@@ -58,12 +42,16 @@ To enable Xdebug, set `PHP_ENABLE_XDEBUG=1` in .env file
 Xdebug is configured to call ip `xdebug.remote_host` on `9005` port (not use standard port to avoid conflicts),
 so you have to configure your IDE to receive connections from that ip.
 
-## Documentation
+## Run container for local development
 
-More information can be found in the [docs](/docs) folder.
+./start.sh
 
-## FAQ
+## Stop containers
 
-- We do not officially support Alpine images, due to numerous issues with PHP requirements and because framework tests are not passing.
-- Depending on the (Debian) base-image (usually PHP <7.4) you might need to set `X_LEGACY_GD_LIB=1`
-- test
+./stop.sh
+
+## Notes
+
+The repository already includes yii2 framework, it is ready to work with multiple environments through the following files:
+
+`index.php` is modified to read `$_SERVER['SERVER_NAME']` making possible to set the current environment and load different configurations settings from `_protected/config/ENV/...`

@@ -24,11 +24,11 @@ testsql.php
 Thumbs.db
 
 # composer vendor dir
-/app/web/_protected/vendor
+app/web/_protected/vendor
 
 # sessions
-/app/web/_protected/runtime/session/sess_*
-/app/web/_protected/runtime/
+app/web/_protected/runtime/session/sess_*
+app/web/_protected/runtime/
 
 # composer itself is not needed
 composer.phar

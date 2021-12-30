@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /**
  * Yii console bootstrap file.
@@ -7,26 +8,26 @@
  * @license http://www.yiiframework.com/license/
  */
 
- switch (strtolower($server['user'])) {
-     case "ubuntu": // local
-         defined('YII_DEBUG') or define('YII_DEBUG', true);
-         defined('YII_ENV') or define('YII_ENV', 'dev');
-         echo "DEV ENV SET\n";
-         break;
+switch (strtolower(getenv('ENV'))) {
+  case "qa": // qa
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_ENV') or define('YII_ENV', 'test');
+    echo "TEST ENV SET\n";
+    break;
 
-     case "crmqa": // qa
-        defined('YII_DEBUG') or define('YII_DEBUG', true);
-        defined('YII_ENV') or define('YII_ENV', 'test');
-        echo "TEST ENV SET\n";
-        break;
+  case "prod": // prod
+    defined('YII_ENV') or define('YII_ENV', 'prod');
+    echo "PROD ENV SET\n";
+    break;
 
-     case "crmprod": // prod
-        defined('YII_ENV') or define('YII_ENV', 'prod');
-        echo "PROD ENV SET\n";
-        break;
- }
+  default:
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_ENV') or define('YII_ENV', 'dev');
+    echo "DEV ENV SET\n";
+    break;
+}
 
-$config = require(__DIR__ . '/config/'.YII_ENV.'/console.php');
+$config = require(__DIR__ . '/config/' . YII_ENV . '/console.php');
 
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');

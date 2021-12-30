@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'class' => 'yii\db\Connection',
-    'dsn' => '',
-    'username' => '',
-    'password' => '',
-    'charset' => 'utf8',
+  'class' => 'yii\db\Connection',
+  'dsn' => 'mysql:host=mariadb_server;dbname=homestead',
+  'username' => 'homestead',
+  'password' => 'secret',
+  'charset' => 'utf8mb4'
 ];

@@ -21,7 +21,7 @@ services:
       - ${PWD}/tests:/tests:delegated
       - ${PWD}/app:/app:delegated
       - ${PWD}/logs/apache2:/var/log/apache2:delegated
-      - ${PWD}/config/php:/usr/local/etc/php
+      - ${PWD}/config/php:/usr/local/etc/php/conf.d
       - ${PWD}/config/vhosts:/etc/apache2/sites-enabled
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
   database:

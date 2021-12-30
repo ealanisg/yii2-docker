@@ -26,6 +26,9 @@ RUN install-php-extensions \
         mongodb \
         xdebug
 
+RUN docker-php-ext-enable \
+        pdo_mysql
+
 # Disable xdebug by default (see PHP_ENABLE_XDEBUG)
 RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 

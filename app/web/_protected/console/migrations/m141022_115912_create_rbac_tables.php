@@ -33,7 +33,7 @@ class m141022_115912_create_rbac_tables extends \yii\db\Migration
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+            $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ENGINE=InnoDB';
         }
         $this->createTable($authManager->ruleTable, [
             'name' => $this->string(64)->notNull(),
@@ -63,7 +63,7 @@ class m141022_115912_create_rbac_tables extends \yii\db\Migration
         ], $tableOptions);
         $this->createTable($authManager->assignmentTable, [
             'item_name' => $this->string(64)->notNull(),
-            // in default impelentation user_id is string(64), but because of this issue: 
+            // in default impelentation user_id is string(64), but because of this issue:
             // https://github.com/nenad-zivkovic/yii2-advanced-template/issues/2
             // we have changed it to integer
             'user_id' => $this->integer()->notNull(),
